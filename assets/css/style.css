@@ -8,3 +8,14 @@ h1 {
     color: black;
     font-weight: bold;
 }
+
+#blank-word {
+    text-transform: uppercase;
+}
+#wrong-letter {
+    text-transform: uppercase;
+}
+#current-guess {
+    text-transform: uppercase;
+}
+

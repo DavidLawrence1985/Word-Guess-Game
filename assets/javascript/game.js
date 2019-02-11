@@ -1,53 +1,94 @@
+//=================== global var
 
-window.onload = function(){
+var lives = 10;// set guesses remaining if  letter doesnt match array letter 
+var wins = 0;// set wins amount start with zero and ++ return to 0 if lives === 0 
+var blanks = [];//array for random word selected 
+var guessedLetters = [];// missed guess letters 
+var guess;
+var correct = [];//correct guess
+//var guess = "";//user guess
 
-var answer = ["LEONARDO", "MICHAELANGELO", "RAPHAEL", "DONETELLO", "APRILONEAL", "CASSEYJONES", 
-            "SPLINTER", "SHREDDER", "BEEBOP", "ROCKSTEADY", "FOOTCLAN", "KRANG", "PIZZA","NINJA", "COWABUNGA"];//answers
+//=================== var to be displayed
 
-var word = answer[Math.floor(answer.length * Math.random())];//picks random word from array
+document.getElementById("lives").textContent = lives;
+document.getElementById("wins").textContent = wins;
+//document.getElementById("wrong-letter").textContent = missedGuess;
+//document.getElementById("current-guess").textContent = currentGuess;
+//window.getElementById("blank-word").add
 
-var blanks = [];//array for random word selected
+//=================== display secret word
+   var answer =["leonardo", "michaelangelo", "raphael", "donetello", "arpiloneil", "caseyjones", 
+            "splinter", "shredder", "beebop", "rocksteady", "footclan", "krang", "pizza","ninja", "cowabunga"];//answers
 
-for (var i = 0; i < word.length; i++) {//random word broken down to blanks 
-    blanks[i] = "_";
-}
+    var word = answer[Math.floor(answer.length * Math.random())];//picks random word from array
 
-var blankWord = blanks.join(" ");//format of blank letters 
+  //var secretWord = word.split("");
 
-//var missingLetters = blanks.length; //how many letter to guess
+    
+    
+ 
 
-   document.getElementById('blankWord').innerHTML= blankWord;
+    //var blankWord = blanks.join(" ");//spaces for dispayed word
+
+   //  blankWord;
+
+//var missingLetters = blanks.length; //how many letters to guess
 
 
-//assign array item to matching blanks ?
 
-document.onkeyup = function(event){
+//==============display current guessed letter
 
-    var guess = event.key.toUpperCase()//figure out what to do here assign keys toUpperCase
+/* var currentGuess = document.onkeyup = function(event) {//Key stroke for guessing missing letters    
+            event.key.toLowerCase();
+    };*/
+//==============functions 
+function wordGenerate(){
+        for (var i = 0; i < word.length; i++) {//random word broken down to blanks to display
+        blanks[i] = "_";
+        document.getElementById('blank-word').innerHTML= blanks.join(" ");
+        console.log(word)
+};
+};
 
-    for (var j = 0; j <blanks.length; j++);
-
-        if( guess === missingLetters) {
-            console.log()
-   
+ function checkGuess(){
+    document.onkeyup = function(event) {
+      guess = event.key.toLowerCase();
+     // var correct = false;
+        for(i = 0; i < word.length; i++){
+            if(guess === word[i]) {//if letter is in word
+            blanks[i] = guess;//blanks array = guessed letter 
+            document.getElementById("blank-word").innerHTML = blanks.join(" ");//send letter to array of word
+            //correct = true;
+            console.log("match");
+            }
+           // if (correct) return;
+            if (guessedLetters.indexOf(guess) < 0) {//if the array of guessed letters index
+                guessedLetters.push(guess);
+                document.getElementById("wrong-letter").innerHTML = guessedLetters.join(" ");
+               // document.getElementById("lives").textContent = lives--;
+            }
+            /*else {
+                lives--;
+                document.getElementById("wrong-letter").innerHTML += event.key;
+                console.log("missed letter");   */
+              }  
+            };
+          
+        };
         
-};
-}
-};
-//};
 
-    //for( var j = 0; j < blanks.length; j++);get keyup to cycle through var blank word
-//foreach() look into
-//guess letter
 
-var lives = "";// set guesses remaining if  letter doesnt match array letter --
 
-var wins = "";// set wins amount start with zero and ++ return to 0 if lives === 0 
+ 
+  //secretWord.forEach(guess);
+  
 
-var guessedLetters = "";// missed guess letters 
+/*
+window.onkeyup function to call function to activate
 
-//check letters against blank letters if "" === [""]
+check letters against blank letters if "" === [""]
 
-    // if correct display letter in place of blank
-    //else --lives and place guessed letter to "guessed letter area"
+ if correct display letter in place of blank
+else --lives and place guessed letter to "guessed letter area"
 
+*/
