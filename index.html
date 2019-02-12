@@ -8,26 +8,27 @@
     
     <title>Document</title>
 </head>
-<body onkeyup="checkGuess()" onload="wordGenerate()">
-
+<body onkeyup="checkGuess()" onload="wordGenerate()" onload="checkWin()">
+    
     <h1>Word guess Game</h1>
 
-
-    <div class="wordBox"  >
-        <h2>Here is your word : <span id="blank-word"></span> </h2> 
-         </div>
-    <div>
-        <h2>Current Letter Guess : <span id="current-guess"></span></h2>
-    </div>     
-
-    <div class="score">
-        <h2>Lives: <span id="lives"></span></h2>
-        
-        <h2>Wins: <span id="wins"></span></h2>
+    <div class="life">
+        <h2>Lives:</h2>
+        <h2 id="lives"></h2>
+    </div>    
+    <div class="win">
+        <h2>Wins:</h2>
+        <h2 id="wins"></h2>
     </div>
 
+    <div class="wordBox">
+        <h2><span id="blank-word"></span> </h2> 
+    </div>
+      
+    
+
     <div class="guessBox">
-        <h2>Wrongly guessed letters: <Letters:span id="wrong-letter"></Letters:span></h2>
+        <h2>Missed Letters: <span id="wrong-letter"></span></h2>
     </div>
     <div id="start-text"><p>press any key to start</p></div>
 <script src="assets/javascript/game.js"></script>

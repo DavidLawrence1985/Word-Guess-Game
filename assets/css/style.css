@@ -4,18 +4,56 @@ h1 {
     text-align: center;
 }
 
-#word {
-    color: black;
-    font-weight: bold;
+h2 {
+    font-size: 2rem;
 }
+.win {
+    float: right;
+    margin-right: 5rem;
+    padding: 1rem ;
+    border: 1px solid #444444;
+    height: 10rem;
+    width: 10rem;
+    text-align: center;
+}
+#lives,
+#wins {
+    text-align: center;
+}
+
+.life {
+    float: left;
+    margin-left: 5rem;
+    padding: 1rem;
+    border: 1px solid #444444;
+    height: 10rem;
+    width: 10rem;
+    text-align: center;
+}
+
+.wordBox {
+    content: "";
+    clear: both;
+    display: table;
+    margin: 0 auto;
+    border: 1px solid #444444;
+    padding: 1.25rem;
+}
+
+
 
 #blank-word {
     text-transform: uppercase;
+    font-size: 3rem;
 }
 #wrong-letter {
     text-transform: uppercase;
 }
 #current-guess {
     text-transform: uppercase;
+}
+
+.guessBox {
+
 }
 
