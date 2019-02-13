@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
     
     <title>Document</title>
 </head>
 <body onkeyup="checkGuess()" onload="wordGenerate()" onload="checkWin()">
+    <div id="logo">
+        <h2 id="banner">Hidden Word Guess</h2>
+    </div>
     
-    <h1>Word guess Game</h1>
+    
 
     <div class="life">
         <h2>Lives:</h2>
@@ -30,6 +34,7 @@
     <div class="guessBox">
         <h2>Missed Letters: <span id="wrong-letter"></span></h2>
     </div>
+    
     <div id="start-text"><p>press any key to start</p></div>
 <script src="assets/javascript/game.js"></script>
 </body>
