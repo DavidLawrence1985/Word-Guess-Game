@@ -6,7 +6,7 @@ var blanks = [];//array for random word selected
 var guessedLetters = [];// missed guess letters 
 var guess;
 var correct = [];
-var answer = ["leonardo", "michaelangelo", "raphael", "donetello", "arpil", "caseyjones", "splinter", "shredder", "beebop", 
+var answer = ["leonardo", "michaelangelo", "raphael", "donetello", "april", "caseyjones", "splinter", "shredder", "beebop", 
     "rocksteady", "footclan", "pizza","ninja", "cowabunga","sewer", "newyorkcity", "dimensionx", "radical"];//answers         
 var word = answer[Math.floor(answer.length * Math.random())];//picks random word from array
 var secretWord = word
@@ -49,8 +49,7 @@ function checkGuess(){
                 document.getElementById("wins").innerHTML = wins += 1;
                 wordGenerate()
                 document.getElementById("wrong-letter").innerHTML = [];
-                
-
+            
             }  
 
             if(lives === 0){//**/works
