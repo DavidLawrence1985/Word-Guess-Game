@@ -6,11 +6,10 @@ var blanks = [];//array for random word selected
 var guessedLetters = [];// missed guess letters 
 var guess;
 var correct = [];
-var answer = ["leonardo", "michaelangelo", "raphael", "donetello", "april", "caseyjones", "splinter", "shredder", "beebop", 
+var answer =["leonardo", "michaelangelo", "raphael", "donetello", "april", "caseyjones", "splinter", "shredder", "beebop", 
     "rocksteady", "footclan", "pizza","ninja", "cowabunga","sewer", "newyorkcity", "dimensionx", "radical"];//answers         
 var word = answer[Math.floor(answer.length * Math.random())];//picks random word from array
-var secretWord = word
-
+var secretWord = word;
 
 //=================== var to be displayed
 
@@ -19,12 +18,20 @@ document.getElementById("wins").textContent = wins;
  
 
 //==============functions 
-function wordGenerate(){//**works
+function wordGenerate() {//**works
     for (var i = 0; i < word.length; i++) {
         blanks[i] = "_";//placeholder for missing letters 
         document.getElementById('blank-word').innerHTML= blanks.join(" ");
         console.log(word);
     }
+};
+function newWord() {//**works
+    
+        for (var i = 0; i < word.length; i++) {
+            blanks[i] = "_";//placeholder for missing letters 
+            document.getElementById('blank-word').innerHTML= blanks.join(" ");
+            
+        }
 };
 
 function checkGuess(){
@@ -37,6 +44,15 @@ function checkGuess(){
                 document.getElementById("blank-word").innerHTML = blanks.join(" ");
                 var correct = true; 
             } }
+
+            if(blanks.join("") === secretWord)  {//mostly works** 
+                alert("Good job! " + secretWord)
+                guessedLetters.length = 0;
+                document.getElementById("wrong-letter").innerHTML = [];
+                blanks.length = 0;
+                document.getElementById("wins").innerHTML = wins += 1;
+                wordGenerate();
+            }  
             
             if (correct) return;
             if (guessedLetters.indexOf(guess) <= 0) {//checks if guess does not match word **works
@@ -45,22 +61,20 @@ function checkGuess(){
                 document.getElementById("wrong-letter").innerHTML = guessedLetters.join(" ");        
             }
 
-            if(blanks.join("") === secretWord)  {//mostly works** 
-                document.getElementById("wins").innerHTML = wins += 1;
-                wordGenerate()
-                document.getElementById("wrong-letter").innerHTML = [];
-            
-            }  
-
             if(lives === 0){//**/works
-                document.getElementById("lives").innerHTML = 10;
                 alert("YOU LOSE");
-                wordGenerate();
+                guessedLetters.length = 0;
                 document.getElementById("wrong-letter").innerHTML = [];
+                blanks.length = 0;
+                lives = 10;
+                document.getElementById("lives").innerHTML = 10;   
                 document.getElementById("wins").innerHTML = 0;
-                
+                wordGenerate();
+                return;
             }
     }
 };
 
+
+//////the code still doesn't work exactly how it should..my word stays the same.
                
