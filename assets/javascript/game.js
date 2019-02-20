@@ -76,5 +76,5 @@ function checkGuess(){
 };
 
 
-//////the code still doesn't work exactly how it should..my word stays the same.
+//////the code still doesn't work exactly how it should..my word stays the same. 
                

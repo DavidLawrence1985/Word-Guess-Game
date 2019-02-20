@@ -6,5 +6,5 @@ game play
 files 
 game uses html and css for design
 
-gameplay is written in plane javascript
+gameplay is written in vanilla javascript
 
